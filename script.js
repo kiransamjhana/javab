@@ -27,3 +27,8 @@ for (let i = 0; i < 50; i++) {
   }
 }
 console.log(uniquN);
+
+const country = ["nepal", "india", "china", "pakistan"];
+const val = Array.country;
+console.log(val);
+console.log(country);
