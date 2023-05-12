@@ -15,6 +15,15 @@ console.table(fruits);
 const person = [1, 2, 3, 4, 5];
 console.log(person);
 
-const division = document.getElementsByClassName("kiran");
+// const division = document.getElementsByClassName("kiran");
 
-division[2].Style.backgroundColor = "red";
+// division[2].style.backgroundColor = "red";
+
+let uniquN = [];
+
+for (let i = 0; i < 50; i++) {
+  if (i % 2) {
+    uniquN.push;
+  }
+}
+console.log(uniquN);
