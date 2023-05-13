@@ -81,16 +81,62 @@
 
 // This keyword
 
-class Fruit {
-  bio() {
-    console.log(this);
-  }
-}
+// class Fruit {
+//   constructor(firstName, age) {
+//     this.firstName = firstName;
+//     this.age = age;
 
-const obj = new Fruit();
-console.timeLog(obj.bio());
-// function a() {
-//   console.log(this);
+//     console.log();
+//   }
+//   bio() {
+//     console.log(`${this.firstName}, ${this.age}`);
+//   }
 // }
 
-// a();
+// const obj = new Fruit("kiran", 28);
+// obj.bio();
+// // function a() {
+// //   console.log(this);
+// // }
+
+// // a();
+// let name = "kiran";
+// const sayHello = (greeting) => {
+//   return `${greeting} from ${name}`;
+// };
+// console.log(sayHello("hola"));
+
+// // Higher order function // taking parameters
+
+// function greet(name, callback) {
+//   console.log("hellow", name);
+//   callback();
+// }
+
+// // greet("john");
+
+// function sayHello() {
+//   console.log("hellow again");
+// }
+
+// greet("kiran", sayHello);
+
+//recurson /// stopping at certain stage
+// let sum = 0;
+// let myArray = [3, 5, 8];
+// const calculateSum = () => {
+//   console.log(`sum is ${sum} and Myarray length is ${myArray.length}`);
+//   if (myArray.length) {
+//     //calculating lenght of array and adding it by pop mehtod
+//     sum = sum + myArray.pop();
+
+//     calculateSum(myArray);
+//   }
+//   return sum;
+// };
+// console.log(calculateSum());
+
+// const myDocument = document.getElementById("first");
+
+const info = document.getElementsByClassName("info1");
+console.log(info);
