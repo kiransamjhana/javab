@@ -138,5 +138,21 @@
 
 // const myDocument = document.getElementById("first");
 
-const info = document.getElementsByClassName("info1");
-console.log(info);
+// const info = document.getElementsByClassName("info1");
+// console.log(info);
+
+// setTimeout(() => elem.style.background="green", 3000)
+
+//QuerrySelector
+// const elem = document.getElementsByClassName(`info1`);
+// console.log(elem.innerHTML);
+const first = document.querySelectorAll(`ul>li:last-child`);
+// console.log(first);
+// for (i -= 0; i < kiran.length; i++) {
+//   console.log(first[i].innerHTML);
+// }
+
+for (let item of kiran) {
+  console.log(kiran[item.innnerHTML]);
+}
+// console.log(first);
