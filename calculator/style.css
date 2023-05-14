@@ -1,0 +1,69 @@
+/* body {
+  background-image: linear-gradient(200deg, blue, orange);
+} */
+
+:root {
+  --primaryClr: #3a4655;
+  --secondaryClr: #2e3a4a;
+  --trClr: #171d25;
+}
+.wrapper {
+  min-height: 100vh;
+  box-shadow: 0 8px 50px -7px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calulator {
+  background-color: beige;
+  width: 400px;
+  display: grid;
+  padding: 0.2rem;
+  gap: 0.2rem;
+  grid-template-areas:
+    "display display display display"
+    "ac c  perc divide"
+    "b7  b8 b9 multiply"
+    "b4  b5  b6 minus"
+    "b1 b2 b3 plus"
+    "b0 dot equals equals";
+}
+
+.calulator div {
+  height: 70px;
+  background-color: #546e7a;
+  color: white;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-ac {
+  grid-area: ac;
+  font-weight: bold;
+  color: #ffa600 !important;
+}
+
+.display {
+  grid-area: display;
+  font-weight: bold;
+  color: #ffa600 !important;
+  justify-content: flex-end !important;
+  padding-right: 10px;
+}
+
+.btn-equal {
+  grid-area: equals;
+}
+
+.btn-perc {
+  grid-area: perc;
+}
+
+.calulator :not(:first-child):hover {
+  cursor: pointer;
+  background-color: var(--trClr);
+  transition: all 0.8sec;
+}

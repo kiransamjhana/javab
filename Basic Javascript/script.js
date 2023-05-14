@@ -146,13 +146,18 @@
 //QuerrySelector
 // const elem = document.getElementsByClassName(`info1`);
 // console.log(elem.innerHTML);
-const first = document.querySelectorAll(`ul>li:last-child`);
-// console.log(first);
-// for (i -= 0; i < kiran.length; i++) {
-//   console.log(first[i].innerHTML);
-// }
+// const first = document.querySelectorAll(`ul>li:last-child`);
+// // console.log(first);
+// // for (i -= 0; i < kiran.length; i++) {
+// //   console.log(first[i].innerHTML);
+// // }
 
-for (let item of kiran) {
-  console.log(kiran[item.innnerHTML]);
-}
-// console.log(first);
+// for (let item of kiran) {
+//   console.log(kiran[item.innnerHTML]);
+// }
+// // console.log(first);
+
+const elem = document.querySelector(`#display`);
+
+elem.innerHTML = "heloow for the wole d dia  a ";
+console.log(elem);
