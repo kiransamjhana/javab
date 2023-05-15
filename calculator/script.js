@@ -4,7 +4,7 @@ const btns = document.querySelectorAll(".btn");
 const audioFile = new Audio("./pranksound.wav");
 let stringToDisplay = "";
 let latestOperator = "";
-console.log(btns);
+
 const operators = ["+", "-", "%", "*", "/"];
 
 //grab the display em=lement
@@ -13,7 +13,7 @@ const operators = ["+", "-", "%", "*", "/"];
 const displayElement = document.querySelector(".display");
 // console.log(displayElement);
 //lop through the buttons
-console.log(displayElement);
+// console.log(displayElement);
 btns.forEach((btn) => {
   // console.log("btn:", btn.innerText)
 
@@ -24,22 +24,17 @@ btns.forEach((btn) => {
       return;
     }
 
-    displayResult(stringToDisplay);
+    // displayResult(stringToDisplay);
 
     if (clickedButton === "AC") {
       stringToDisplay = "";
       return displayResult("");
     }
 
-    if (clickedButton === "D") {
+    if (clickedButton === "←") {
       stringToDisplay = stringToDisplay.slice(0, -1);
       //   console.log("inside div", stringToDisplay);
       return displayResult(stringToDisplay);
-    }
-
-    {
-      stringToDisplay = stringToDisplay + clickedButton;
-      displayResult(stringToDisplay);
     }
 
     if (operators.includes(clickedButton)) {
@@ -49,9 +44,10 @@ btns.forEach((btn) => {
 
       if (operators.includes(lastCharacter)) {
         stringToDisplay = stringToDisplay.slice(0, -1);
-        console.log("hi iam here ");
+        // console.log("hi iam here ");
+
+        // console.log("operator is clicked");
       }
-      // console.log("operator is clicked");
     }
 
     if (clickedButton === "=") {
@@ -59,8 +55,14 @@ btns.forEach((btn) => {
       if (operators.includes(lastCharacter)) {
         stringToDisplay = stringToDisplay.slice(0, -1);
       }
+      return displayTotal(stringToDisplay);
     }
-    return displayTotal(stringToDisplay);
+
+    if (stringToDisplay.includes(".")) {
+      continue;
+    }
+    stringToDisplay = stringToDisplay + clickedButton;
+    displayResult(stringToDisplay);
   });
 });
 
@@ -73,25 +75,26 @@ const displayTotal = (value) => {
 
   if (prankedData) {
     audioFile.play();
-    displayElement.style.background = "green";
+    displayElement.style.background = "orange";
     setTimeout(() => (displayElement.style.background = ""), 2000);
+  }
 
+  {
     let totalValue = eval(value).toString();
     stringToDisplay = totalValue;
     displayResult(totalValue);
   }
+};
 
-  const sendRandom = () => {
-    let randomnum = Math.round(Math.random() * 10);
-    //  if (randomnum <3){
-    //     return randomnum;
-    //  } else{
-    //     return 0;
-    //  }
+const sendRandom = () => {
+  let randomnum = Math.round(Math.random() * 10);
+  //  if (randomnum <3){
+  //     return randomnum;
+  //  } else{
+  //     return 0;
+  //  }
 
-    //Tertiary operaion
+  //Tertiary operaion
 
-    const valueToReturn = randomnum < 3 ? randomnum : 0;
-  };
-  sendRandom();
+  return randomnum < 3 ? randomnum : 0;
 };
