@@ -1,0 +1,22 @@
+.wrapper {
+  background-color: antiquewhite;
+  min-height: 100vh;
+}
+
+.container {
+  display: felx;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5rem;
+}
+.container :nth-child(:first-child) {
+  align-items: center;
+  justify-content: center;
+}
+
+.middle {
+  display: flex;
+  justify-content: space-between;
+  row-gap: 9rem;
+  margin-top: 6rem;
+}
