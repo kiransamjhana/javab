@@ -24,6 +24,10 @@ btns.forEach((btn) => {
       return;
     }
 
+    if (operators.includes(".") && !stringToDisplay.length) {
+      return;
+    }
+
     // displayResult(stringToDisplay);
 
     if (clickedButton === "AC") {
@@ -49,6 +53,9 @@ btns.forEach((btn) => {
         // console.log("operator is clicked");
       }
     }
+    // if (operators.includes(".")) {
+    //   stringToDisplay = stringToDisplay.slice(0, -1);
+    // }
 
     if (clickedButton === "=") {
       const lastCharacter = stringToDisplay.slice(-1);
@@ -58,9 +65,9 @@ btns.forEach((btn) => {
       return displayTotal(stringToDisplay);
     }
 
-    if (stringToDisplay.includes(".")) {
-      continue;
-    }
+    // if (stringToDisplay.includes(".")) {
+    //   stringToDisplay=;
+    // }
     stringToDisplay = stringToDisplay + clickedButton;
     displayResult(stringToDisplay);
   });
