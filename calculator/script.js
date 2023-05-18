@@ -65,9 +65,12 @@ btns.forEach((btn) => {
       return displayTotal(stringToDisplay);
     }
 
-    // if (stringToDisplay.includes(".")) {
-    //   stringToDisplay=;
-    // }
+    if (stringToDisplay.includes("..")) {
+      stringToDisplay = stringToDisplay.slice(0, -1);
+
+      return displayResult(stringToDisplay);
+    }
+
     stringToDisplay = stringToDisplay + clickedButton;
     displayResult(stringToDisplay);
   });
