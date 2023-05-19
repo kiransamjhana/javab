@@ -27,7 +27,7 @@
 
 .rightside {
   display: flex;
-  margin-left: 4rem;
+  margin-left: 9rem;
   align-content: end;
   align-items: end;
 }
@@ -45,4 +45,7 @@
   flex-direction: column;
   width: 80%;
   justify-content: center;
+}
+.leftside {
+  width: 30rem;
 }
