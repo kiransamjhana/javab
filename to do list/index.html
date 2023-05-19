@@ -21,7 +21,12 @@
 
         <div class="middle">
           <div class="leftside">
-            <input type="text" />
+            <input
+              type="text"
+              class="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-sm"
+            />
           </div>
 
           <div class="rightside">
@@ -40,12 +45,24 @@
           <hr />
 
           <ul class="list-group">
-            <li class="list-group-item"></li>
-
-            <li class="list-group-item list-group-item-primary"></li>
-            <li class="list-group-item list-group-item-secondary"></li>
-            <li class="list-group-item list-group-item-success"></li>
-            <li class="list-group-item list-group-item-danger"></li>
+            <li class="list-group-item">
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder=""
+                  aria-label="Recipient's username"
+                  aria-describedby="button-addon2"
+                />
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="button-addon2"
+                >
+                  Delete
+                </button>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -56,5 +73,7 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+
+    <script src="./script.js"></script>
   </body>
 </html>
