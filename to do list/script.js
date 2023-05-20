@@ -3,46 +3,84 @@
 let taskList = [];
 
 const entryElm = document.getElementById("entry");
+const badElm = document.getElementById("bad");
 
 const handlOnSubmit = (e) => {
   const formDt = new FormData(e);
   const task = formDt.get("task");
-  const hr = formDt.get("hr");
+  const hr = +formDt.get("hr");
 
-  console.log(task, hr);
+  // console.log(task, hr);
 
   const taskObj = {
     task,
     hr,
     id: randomGennerator(),
+    type: "entry",
   };
 
+  if (totalHours() + hr > 168) {
+    return alert(
+      "sorry mates, you dont have enought time to left to do this task"
+    );
+  }
+
   taskList.push(taskObj);
-  console.log(taskList);
+
   displayTask();
 };
 
 // DISPLAYIG DATA IN THE BROWWER
 
 const displayTask = () => {
+  const entryList = taskList.filter((item) => item.type === "entry");
   let str = "";
-  taskList.map((item, i) => {
-    str += `<tr>
+  entryList.map((item, i) => {
+    str += `
+    <tr>
     <td>${item.task}</td>
-    <td>${item.task}</td>
+    <td>${item.hr} hrs</td>
     <td>
       <button class="btn btn-danger" onclick="deleteTask('${item.id}')">
         <i class="fa-solid fa-trash"></i>
       </button>
-      <button class="btn btn-success">
-        <i class="fa-solid fa-arrow-left"></i>
+      <button class="btn btn-warning btn -sm" onclick= "switchTask('${item.id}', 'entry')">
+        <i class="fa-solid fa-arrow-right"></i>
       </button>
     </td>
   </tr>`;
   });
   entryElm.innerHTML = str;
+  displayTask();
 };
+const displayBadTask = () => {
+  const badList = taskList.filter((item) => item.type === "bad");
+  let str = "";
+  badList.map((item, i) => {
+    str += `
+<tr>
+<td>${item.task}</td>
+<td>${item.hr} hrs</td>
+<td>
 
+<button class="btn btn-warning btn-sm"
+  onclick="swithcTask('${item.id}', 'entry' )"
+  >
+    <i class="fa-solid fa-arrow-left"></i>
+  </button>
+  <button class="btn btn-danger btn-sm" onclick="deleteTask('${item.id}')">
+    <i class="fa-solid fa-trash"></i>
+  </button>
+  
+</td>
+</tr>`;
+  });
+  badElm.innerHTML = str;
+
+  const badHrs = badList.reduce((acc, item) => acc + +item.hr, 0);
+  document.getElementById("badHrs");
+  innerText = badHrs;
+};
 //  create unique id
 
 const randomGennerator = (length = 6) => {
@@ -60,4 +98,22 @@ const deleteTask = (id) => {
     taskList = taskList.filter((item) => item.id !== id);
     displayTask();
   }
+};
+// swirtch task from entry to bad type or vice VideoColorSpace
+
+const switchTask = (id, type) => {
+  taskList = taskList.map((item) => {
+    if (item.id === id) {
+      item.type = type;
+    }
+    return item;
+  });
+  displayTask();
+};
+
+const totalHours = () => {
+  const ttlHrs = taskList.reduce((acc, { hr }) => acc + +hr, 0);
+
+  document.getElementById("total").innerText = ttlHrs;
+  return ttlHrs;
 };
