@@ -3,49 +3,10 @@
 }
 
 .wrapper {
-  background: linear-gradient(
-    rgb(128, 99, 137),
-    rgb(98, 82, 82),
-    rgb(197, 97, 97)
-  );
   min-height: 100vh;
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 4rem;
-}
-
-.middle {
-  display: flex;
-  justify-content: space-around;
-  row-gap: 4rem;
-  margin-top: 7rem;
-}
-
-.rightside {
-  display: flex;
-  margin-left: 9rem;
-  align-content: end;
-  align-items: end;
-}
-.tasklist {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-}
-
-.tasklist ul {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  justify-content: center;
-}
-.leftside {
-  width: 30rem;
+  background: linear-gradient(
+    rgba(120, 107, 107, 0.517),
+    rgb(98, 82, 82),
+    rgba(122, 54, 156, 0.619)
+  );
 }
