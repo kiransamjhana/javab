@@ -5,7 +5,7 @@ const audioFile = new Audio("./pranksound.wav");
 let stringToDisplay = "";
 let latestOperator = "";
 
-const operators = ["+", "-", "%", "*", "/"];
+const operators = ["+", "-", "%", "*", "/", "."];
 
 //grab the display em=lement
 // console.log(btn);
@@ -19,50 +19,69 @@ btns.forEach((btn) => {
 
   btn.addEventListener("click", () => {
     let clickedButton = btn.innerText;
+
+    console.log(clickedButton);
     //block user if theyb select operator in the staring
     if (operators.includes(clickedButton) && !stringToDisplay.length) {
       return;
     }
-
-    // displayResult(stringToDisplay);
-
-    if (clickedButton === "AC") {
-      stringToDisplay = "";
-      return displayResult("");
-    }
-
-    if (clickedButton === "←") {
-      stringToDisplay = stringToDisplay.slice(0, -1);
-      //   console.log("inside div", stringToDisplay);
-      return displayResult(stringToDisplay);
-    }
-
-    if (operators.includes(clickedButton)) {
-      latestOperator = clickedButton;
-      const lastCharacter = stringToDisplay.slice(-1);
-      // console.log("lastCharacter", lastCharacter);
-
-      if (operators.includes(lastCharacter)) {
-        stringToDisplay = stringToDisplay.slice(0, -1);
-        // console.log("hi iam here ");
-
-        // console.log("operator is clicked");
-      }
-    }
-
-    if (clickedButton === "=") {
-      const lastCharacter = stringToDisplay.slice(-1);
-      if (operators.includes(lastCharacter)) {
-        stringToDisplay = stringToDisplay.slice(0, -1);
-      }
-      return displayTotal(stringToDisplay);
-    }
-
-    // if (stringToDisplay.includes("." + ".")) {
-    //   stringToDisplay = stringToDisplay.slice(0, -1);
-    //   displayResult(stringToDisplay);
-    // }
   });
+
+  // displayResult(stringToDisplay);
+
+  if (clickedButton === "AC") {
+    stringToDisplay = "";
+    return displayResult("");
+  }
+
+  if (clickedButton === "←") {
+    stringToDisplay = stringToDisplay.slice(0, -1);
+    //   console.log("inside div", stringToDisplay);
+    return displayResult(stringToDisplay);
+  }
+
+  if (operators.includes(clickedButton)) {
+    latestOperator = clickedButton;
+    const lastCharacter = stringToDisplay.slice(-1);
+    // console.log("lastCharacter", lastCharacter);
+  }
+  if (operators.includes(lastCharacter)) {
+    stringToDisplay = stringToDisplay.slice(0, -1);
+    // console.log("hi iam here ");
+
+    // console.log("operator is clicked");
+  }
+
+  stringToDisplay = stringToDisplay + clickedButton;
+  // console.log("stringToDisplay:",stringToDisplay)
+  displayResult(stringToDisplay);
+
+  if (clickedButton === ".") {
+    const indexOfLastOperator = stringToDisplay.lastIndexOf(latestOperator);
+
+    const lastNumberSet = stringToDisplay.slice(indexOfLastOperator);
+
+    if (lastNumberSet.includes(".")) {
+      return;
+    }
+
+    if (!latestOperator && stringToDisplay.includes(".")) {
+      return;
+    }
+  }
+
+  if (clickedButton === "=") {
+    const lastCharacter = stringToDisplay.slice(-1);
+    if (operators.includes(lastCharacter)) {
+      stringToDisplay = stringToDisplay.slice(0, -1);
+    }
+    return displayTotal(stringToDisplay);
+  }
+
+  // if (stringToDisplay.includes("." + ".")) {
+  //   stringToDisplay = stringToDisplay.slice(0, -1);
+  //   displayResult(stringToDisplay);
+  // }
 });
 
 const displayResult = (value) => {
