@@ -157,7 +157,20 @@
 // }
 // // console.log(first);
 
-const elem = document.querySelector(`#display`);
+// const elem = document.querySelector(`#display`);
 
-elem.innerHTML = "heloow for the wole d dia  a ";
-console.log(elem);
+// elem.innerHTML = "heloow for the wole d dia  a ";
+// console.log(elem);
+console.log(document);
+const elm = document.getElementById("first");
+
+const text = elm.innerHTML;
+console.log(text);
+
+const reverse = document.getElementsByClassName("reverse");
+
+reverse.addEventListener("click", (kiran) => {
+  const textGrab = reverse.innertext;
+  const kiran = textGrab.reverse(textGrab.split);
+  return kiran;
+});

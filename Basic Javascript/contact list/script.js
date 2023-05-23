@@ -4,9 +4,9 @@
 //3 display user in  the UI
 
 let userList = [];
-const apiEp = "https://randomuser.me/api?";
+const apiEp = "https://randomuser.me/api?results=10";
 const displayElm = document.getElementById("list");
-const fetchUser = async (path = "results=20") => {
+const fetchUser = async () => {
   //   //promise
 
   //   fetch(apiEp).then((response) => {
@@ -27,7 +27,7 @@ const fetchUser = async (path = "results=20") => {
   //asyc await
 
   try {
-    const response = await fetch(apiEp + path);
+    const response = await fetch(apiEp);
     const data = await response.json();
     userList = data.results;
     displayUser();
@@ -61,10 +61,13 @@ ${usr?.location?.country}</div>
   displayElm.innerHTML = str;
 };
 
-document.getElementById("select").addEventListener("change", (e) => {
-  const { value } = e.target;
+let newString = "";
+const reverseString = (str) => {
+  for (i = str.length - 1; i >= 0; i--) {
+    newString += str[i];
+  }
+  return newString;
+};
 
-  const path = "results=20&gender=" + value;
-  fetchUser(path);
-  console.log(value);
-});
+reverseString(" My name is kiran");
+console.log(newString);
