@@ -60,3 +60,14 @@ ${usr?.location?.country}</div>
   });
   displayElm.innerHTML = str;
 };
+
+let newString = "";
+const reverseString = (str) => {
+  for (i = str.length - 1; i >= 0; i--) {
+    newString += str[i];
+  }
+  return newString;
+};
+
+reverseString(" My name is kiran");
+console.log(newString);
