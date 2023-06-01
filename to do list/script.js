@@ -117,3 +117,7 @@ const totalHours = () => {
   document.getElementById("total").innerText = ttlHrs;
   return ttlHrs;
 };
+
+let x = "Hello world";
+let y = x.replace("Hell", "kii");
+console.log(y);
